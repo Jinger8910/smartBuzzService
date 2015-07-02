@@ -8,6 +8,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var User = require('./models/users');
+var port = process.env.PORT || 8080;        // set our port
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 
 
 
-var port = process.env.PORT || 8080;        // set our port
+
 var mongoose   = require('mongoose');
 // mongoose.connect("mongodb://localhost/users");
 mongoose.connect("mongodb://smartbuzz.cloudapp.net/smartbuzz")
