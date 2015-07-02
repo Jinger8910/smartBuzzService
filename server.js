@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 var mongoose   = require('mongoose');
 // mongoose.connect("mongodb://localhost/users");
-mongoose.connect("mongodb://smartbuzz.cloudapp.net/smartbuzz")
+mongoose.connect("mongodb://smartbuzz:jmf123456@c773.candidate.3.mongolayer.com:10773,candidate.4.mongolayer.com:10394/smartbuzz?replicaSet=set-5595b042991c538f4e000179")
 
 // ROUTES FOR OUR API
 // =============================================================================

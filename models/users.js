@@ -7,8 +7,8 @@ var Schema       = mongoose.Schema;
 var UserSchema   = new Schema({
     userName: String,
     title: String,
-    startDate: Date,
-    endDate: Date,
+    StartTime: Date,
+    endTime: Date,
     location: String,
     message: String,
     eventid:String
