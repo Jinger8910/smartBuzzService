@@ -7,10 +7,11 @@ var Schema       = mongoose.Schema;
 var UserSchema   = new Schema({
     userName: String,
     title: String,
-    StartTime: Date,
-    endTime: Date,
+    startDate: Date,
+    endDate: Date,
     location: String,
-    notififation: Boolean
+    message: String,
+    eventid:String
 });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -39,10 +39,11 @@ router.route('/users')
 		var user = new User();
 		user.userName = req.body.username;
         user.title = req.body.title;
-        //user.StartTime = req.body.startTime;
-        //user.endTime = req.body.endTime;
+        user.StartTime = req.body.startDate;
+        user.endTime = req.body.endDate;
         user.location = req.body.location;
-        user.notififation = req.body.notififation;
+        user.message = req.body.message;
+        user.eventid = req.body.eventid;
 
         // save user and check for errors
         user.save(function(err) {
@@ -82,13 +83,13 @@ router.route('/users/:user_id')
 
             if (err)
                 res.send(err);
-
-            user.name = req.body.name;  // update the users info
+            user.userName = req.body.username;
             user.title = req.body.title;
-            //user.StartTime = req.body.startTime;
-            //user.endTime = req.body.endTime;
+            user.StartTime = req.body.startDate;
+            user.endTime = req.body.endDate;
             user.location = req.body.location;
-            user.notififation = req.body.notififation;
+            user.message = req.body.message;
+            user.eventid = req.body.eventid;
             // save the user
             user.save(function(err) {
                 if (err)
@@ -112,8 +113,10 @@ router.route('/users/:user_id')
         });
     });
 
-
-
+router.route('/')
+    .get(function(req,res){
+        req.send('API is working now')
+    });
 
 
 // REGISTER OUR ROUTES -------------------------------
