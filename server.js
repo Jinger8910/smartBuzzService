@@ -47,7 +47,10 @@ router.route('/path')
 });
 
 
-
+router.route('/test')
+    .post(function(req,res){
+        res.json(req.body);
+    });
 
 
 
