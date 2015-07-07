@@ -29,6 +29,10 @@ mongoose.connect("mongodb://smartbuzz:jmf123456@c773.candidate.3.mongolayer.com:
 var router = express.Router();              // get an instance of the express Router
 
 router.use(function (req,res,next){
+        res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        next();
 	next();
 });
 
