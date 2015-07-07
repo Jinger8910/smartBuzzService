@@ -8,6 +8,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var User = require('./models/users');
+var tripNav = require('./tripNav');
 var port = process.env.PORT || 8080;        // set our port
 
 // configure app to use bodyParser()
@@ -24,6 +25,7 @@ var mongoose   = require('mongoose');
 // mongoose.connect("mongodb://localhost/users");
 mongoose.connect("mongodb://smartbuzz:jmf123456@c773.candidate.3.mongolayer.com:10773,candidate.4.mongolayer.com:10394/smartbuzz?replicaSet=set-5595b042991c538f4e000179")
 
+
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
@@ -31,6 +33,24 @@ var router = express.Router();              // get an instance of the express Ro
 router.use(function (req,res,next){
 	next();
 });
+
+router.route('/path')
+    .post(function(req,res){
+    var curLat = req.body.curLat;
+    var curLog = req.body.curLog;
+    var desLat = req.body.desLat;
+    var desLog = req.body.desLog;
+	tripNav.tripNav([curLat,curLog],[desLat,desLog],res);
+});
+
+
+
+
+
+
+
+
+
 
 
 router.route('/users')
@@ -115,7 +135,7 @@ router.route('/users/:user_id')
 
 router.route('/')
     .get(function(req,res){
-        req.send('API is working now')
+        res.send('API is working now')
     });
 
 
