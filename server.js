@@ -49,7 +49,7 @@ router.route('/path')
 
 router.route('/test')
     .post(function(req,res){
-        res.json(req.body);
+        res.send(req.body);
     });
 
 router.route('/test2')
