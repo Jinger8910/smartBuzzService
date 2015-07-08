@@ -63,7 +63,7 @@ router.route('/users')
         user.endTime = req.body.endDate;
         user.location = req.body.location;
         user.message = req.body.message;
-        user.eventid = req.body.eventid;
+        user.notification = req.body.notification;
 
         // save user and check for errors
         user.save(function(err) {

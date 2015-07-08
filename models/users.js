@@ -11,7 +11,8 @@ var UserSchema   = new Schema({
     endTime: Date,
     location: String,
     message: String,
-    eventid:String
+    eventid:String,
+    notification: Boolean
 });
 
 module.exports = mongoose.model('User', UserSchema);
