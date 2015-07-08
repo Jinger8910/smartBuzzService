@@ -55,17 +55,21 @@ router.route('/test')
 router.route('/test2')
     .post(function(req,res){
     var curLat = req.body.curLat;
-    console.log(req);
-    console.log(req.body);
-    res.send(curLat);
+    res.send(req.param('curLat'));
 });
 
 router.route('/test3')
     .post(function(req,res){
-    res.send(33.57);
+    res.send(req.params.curLat);
 });
 
+app.post('/test4', function(request, response){
+  response.send(request.params);
+});
 
+app.post('/test5', function(request, response){
+  response.send(request.params.curLat);
+});
 
 
 router.route('/users')
