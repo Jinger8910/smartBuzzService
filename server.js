@@ -55,10 +55,15 @@ router.route('/test')
 router.route('/test2')
     .post(function(req,res){
     var curLat = req.body.curLat;
+    console.log(req);
+    console.log(req.body);
     res.send(curLat);
 });
 
-
+router.route('/test3')
+    .post(function(req,res){
+    res.send(33.57);
+});
 
 
 
