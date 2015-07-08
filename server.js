@@ -52,7 +52,11 @@ router.route('/test')
         res.json(req.body);
     });
 
-
+router.route('/test2')
+    .post(function(req,res){
+    var curLat = req.body.curLat;
+    res.send(curLat);
+});
 
 
 
