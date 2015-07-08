@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 
-
+var req_value;
 
 var mongoose   = require('mongoose');
 // mongoose.connect("mongodb://localhost/users");
@@ -49,28 +49,9 @@ router.route('/path')
 
 router.route('/test')
     .post(function(req,res){
+        console.log(req.body.curLat);
         res.send(req.body);
     });
-
-router.route('/test2')
-    .post(function(req,res){
-    var curLat = req.body.curLat;
-    res.send(req.param('curLat'));
-});
-
-router.route('/test3')
-    .post(function(req,res){
-    res.send(req.params.curLat);
-});
-
-app.post('/test4', function(request, response){
-  response.send(request.params);
-});
-
-app.post('/test5', function(request, response){
-  response.send(request.params.curLat);
-});
-
 
 router.route('/users')
     // post method
@@ -142,6 +123,7 @@ router.route('/users/:user_id')
     })
 
     .delete(function(req, res) {
+        console.log(req.params.user_id);
         User.remove({
             _id: req.params.user_id
         }, function(err, user) {
