@@ -1162,10 +1162,14 @@ function tripNav(curLocation, dest,res) {
                     "take_bus": tempDirect[r],
                     "end_at": potentialEndStop[q].stop_name
                 }
+                console.log("p:" + p.toString()+" q:"+ q.toString());
+                console.log(tripCombo);
                 directTripNav.push(tripCombo);
             }
         }
     }
+    res.json(directTripNav);
+
 
     if (directTripNav.length != 0) {
         return directTripNav;
@@ -1184,6 +1188,7 @@ function tripNav(curLocation, dest,res) {
                 }
             }
         }
+        console.log("transfer path calculation is finished");
         res.json(transferTripNav);
          //return transferTripNav;
     }
